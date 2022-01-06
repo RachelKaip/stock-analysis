@@ -40,10 +40,11 @@ However, in the second approach to refactor the data, one of the main attributes
 ![Refactored_Output_Loop](https://user-images.githubusercontent.com/94569240/147702551-334cb0a7-80c8-4cdc-b3a2-3a1efd4377d2.PNG)
 
 #### Script Run Times 
-In the end, we can see that while each approach accomplishes the same thing, they vary in run times.   
-![Original_Script_2018](https://user-images.githubusercontent.com/94569240/148440565-5284b638-366d-4184-a966-8bc79a292468.PNG)
+In the end, we can see that while each approach accomplishes the same thing, they vary in run times.
 ---
-![Refactored_Script_2018](https://user-images.githubusercontent.com/94569240/148440599-bffda213-6993-4603-899c-cede00c05155.PNG)
+![VBA_Original_Analysis](https://user-images.githubusercontent.com/94569240/148440777-7273f54f-2224-4858-99fc-954fc926ceb0.PNG)
+---
+![VBA_Challenge_2018](https://user-images.githubusercontent.com/94569240/148440810-1801f76e-3464-4006-9054-9d61a08afa9d.PNG)
 ---
 As stated in the screenshot above, the original code, where Excel makes and outputs each calculation individually, runs ~2 seconds slower than the refactored script.  I beleive this may be because it's faster for excel to make all the calculations while looping through the rows once than it is to stop the loop to output data before moving onto the next ticker.  
 
