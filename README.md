@@ -26,31 +26,25 @@ In the first approach to create the original script, in short, with our nested l
 ![Original_Nested_Loop](https://user-images.githubusercontent.com/94569240/147702393-4a553a97-e444-4806-9fd8-51690d2ddd6a.PNG)
 
 
-<<<<<<< HEAD
+
 However, in the second approach to refactor the data, one of the main attributes that affects the run times is that we instructed Excel to only loop through the rows once, calculate for each current the Total Daily Volume and Return %, then output all the data at once.  We did this by changing/adding two parts:
 1. At the bottom of the inner loop, we told excel that if the ticker in the next row, doesn't match the ticker in the current row, then to "increase the ticker index by 1" AKA, move on to the next ticker in the list before ending the loop's calcualtion.  
-[insert screen shot]
+
 =======
 However, in the second approach to refactor the data, one of the main attributes that affects the run times is that we instructed Excel to do all the caluculations at once *before outputting anything*.  We did this by changing/adding two pieces of information:
 1. At the of the inner loop, we told excel that if the ticker in the next row, doesn't match the ticker in the current row, then to "increase the ticker index by 1" AKA, move on to the next ticker in the list before ending the loop's calcualtion.  
-![Refactored_Ticker_Index_Increase](https://user-images.githubusercontent.com/94569240/147702533-7c435b25-a493-4b91-9fcf-1aa5aeb25046.PNG)
+![Refactored_Ticker_Index_Increase](https://user-images.githubusercontent.com/94569240/148440490-9382b8a5-cafa-4bae-a910-743f4134d11b.PNG)
 
->>>>>>> 9b7e388a92afcc689a2acf74b281f633f462a47b
 2. The output instructions are in a seperate loop of thier own.  Therefore, Excel couldn't even think about outputting this information before making each calculation instructed in the larger nested loop.  
 
 ![Refactored_Output_Loop](https://user-images.githubusercontent.com/94569240/147702551-334cb0a7-80c8-4cdc-b3a2-3a1efd4377d2.PNG)
 
 #### Script Run Times 
 In the end, we can see that while each approach accomplishes the same thing, they vary in run times.   
-<<<<<<< HEAD
-
-[insert screen shot 1]
-[insert screen shot 2 ]
-=======
-![Original_Script_2018](https://user-images.githubusercontent.com/94569240/147702586-1ee2125f-7706-4377-baef-93254d3749ef.PNG)
-![Refactored_Script_2018](https://user-images.githubusercontent.com/94569240/147702590-f482adcb-b34e-40c2-b5e2-83406f775eee.PNG)
->>>>>>> 9b7e388a92afcc689a2acf74b281f633f462a47b
-
+![Original_Script_2018](https://user-images.githubusercontent.com/94569240/148440565-5284b638-366d-4184-a966-8bc79a292468.PNG)
+---
+![Refactored_Script_2018](https://user-images.githubusercontent.com/94569240/148440599-bffda213-6993-4603-899c-cede00c05155.PNG)
+---
 As stated in the screenshot above, the original code, where Excel makes and outputs each calculation individually, runs ~2 seconds slower than the refactored script.  I beleive this may be because it's faster for excel to make all the calculations while looping through the rows once than it is to stop the loop to output data before moving onto the next ticker.  
 
 ## Summary
