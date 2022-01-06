@@ -21,21 +21,22 @@ Based on our findings, I'd reccomend to Steven that his parents reallocate their
 ### Script Performance: Original Script vs. Refactored 
 As for the scripts we wrote to find this information, we took two different approaches.  
 
-In the first approach to create the original script, in short, we asked excel to loop through each ticker individually and output the current ticker's data *before moving onto the next ticker* by including the output directions in the outer loop.  
+In the first approach to create the original script, in short, with our nested loop, we instructed Excel to loop through the rows to find every ticker, make it's calculations, and then output that ticker's data before looping again to look for the next ticker.  
 
 [insert screenshot of Mod 1]
 
-However, in the second approach to refactor the data, one of the main attributes that affects the run times is that we instructed Excel to do all the caluculations at once *before outputting anything*.  We did this by changing/adding two pieces of information:
-1. At the of the inner loop, we told excel that if the ticker in the next row, doesn't match the ticker in the current row, then to "increase the ticker index by 1" AKA, move on to the next ticker in the list before ending the loop's calcualtion.  
+However, in the second approach to refactor the data, one of the main attributes that affects the run times is that we instructed Excel to only loop through the rows once, calculate for each current the Total Daily Volume and Return %, then output all the data at once.  We did this by changing/adding two parts:
+1. At the bottom of the inner loop, we told excel that if the ticker in the next row, doesn't match the ticker in the current row, then to "increase the ticker index by 1" AKA, move on to the next ticker in the list before ending the loop's calcualtion.  
 [insert screen shot]
 2. The output instructions are in a seperate loop of thier own.  Therefore, Excel couldn't even think about outputting this information before making each calculation instructed in the larger nested loop.  
 
 #### Script Run Times 
 In the end, we can see that while each approach accomplishes the same thing, they vary in run times.   
+
 [insert screen shot 1]
 [insert screen shot 2 ]
 
-As stated in the screenshot above, the original code, where Excel makes and outputs each calculation indisidially, runs ~2 seconds faster than the refactored script.  I beleive this may be because, even though the refactored version is logically more efficient, we added an additional instruction for Excel to follow by asking to increase the ticker index by 1 before closing the nested loop.  
+As stated in the screenshot above, the original code, where Excel makes and outputs each calculation individually, runs ~2 seconds slower than the refactored script.  I beleive this may be because it's faster for excel to make all the calculations while looping through the rows once than it is to stop the loop to output data before moving onto the next ticker.  
 
 ## Summary
 ---
